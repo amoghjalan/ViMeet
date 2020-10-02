@@ -1,5 +1,5 @@
 {
-  "name": "vimeet",
+  "name": "meet",
   "version": "1.0.0",
   "description": "Virtual Meet & Greet",
   "main": "index.js",
@@ -7,11 +7,14 @@
     "start": "nodemon index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "Amogh, Harsh & Vaibhav",
+  "author": "Harsh,Amogh & Vaibhav",
   "license": "ISC",
   "dependencies": {
     "ejs": "^3.1.3",
     "express": "^4.17.1",
-    "express-ejs-layouts": "^2.5.0"
+    "express-ejs-layouts": "^2.5.0",
+    "moment": "^2.29.0",
+    "qs": "^6.9.4",
+    "socket.io": "^2.3.0"
   }
 }
