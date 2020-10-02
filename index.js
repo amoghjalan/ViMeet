@@ -19,7 +19,7 @@ const server = http.createServer(app);
 const io = socketio(server);
 
 // const express = require("express");
-const PORT = 3000;
+const port = process.env.PORT || '3000';
 
 // const app = express();
 // const http = require('http');
@@ -73,6 +73,11 @@ io.on("connection", (socket) => {
   socket.on("start",(question)=>{
      
     const user = getCurrentUser(socket.id);
+    
+    io.to(user.room).emit(
+      "message",
+      formatMessage(botName, `You have a new question`)
+    );
 
     // Send users and room info
     io.to(user.room).emit('Start_Session',question);
@@ -113,14 +118,14 @@ app.set("layout extractScripts", true);
 // use express router
 app.use('/', require('./routes'));
 
-server.listen(PORT, function (err) {
+server.listen(port, function (err) {
   
     if(err) {
        console.log("error in starting the server");
        return;
     }
 
-     console.log("server started on port no.", PORT);
+     console.log("server started on port ");
 });
 
 
